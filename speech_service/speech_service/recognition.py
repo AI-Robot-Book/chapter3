@@ -25,7 +25,6 @@ class Recognition(rclpy.node.Node):
 
             try:
                 text = self.init_rec.recognize_google(audio_data)
-                response.answer = text
 
             except sr.UnknownValueError:
                 pass
