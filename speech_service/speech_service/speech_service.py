@@ -74,9 +74,7 @@ def main():
 
     speech_service = SpeechService()
 
-    try:
-        rclpy.spin(speech_service)
-    except:
-        speech_service.destroy_node()
+    rclpy.spin(speech_service)
+    speech_service.destroy_node()
 
     rclpy.shutdown()
