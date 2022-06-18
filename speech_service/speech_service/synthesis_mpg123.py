@@ -23,9 +23,7 @@ class Synthesis(rclpy.node.Node):
         text = msg.data
         self.get_logger().info(f'\"{text}\"と発話します')
 
-        tts = gTTS(text, lang='en', slow=True)
-
-        tts.save("voice.mp3")
+        gTTS(text, lang='en', slow=True).save("voice.mp3")
 
         subprocess.run(["mpg123 voice.mp3"], shell=True)
 
@@ -40,3 +38,6 @@ def main():
         synthesis_node.destroy_node()
 
     rclpy.shutdown()
+
+if __name__ == "__main__":
+    main()
