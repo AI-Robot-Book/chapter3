@@ -22,9 +22,9 @@ setup(
         'console_scripts': [
             'recognition = speech_service.recognition:main',
             'synthesis = speech_service.synthesis:main',
-            'synthesis = speech_service.synthesis_mpg123:main',
+            'synthesis_mpg123 = speech_service.synthesis_mpg123:main',
             'speech_service = speech_service.speech_service:main',
-            'speech_service = speech_service.speech_service_mpg123:main'
+            'speech_service_mpg123 = speech_service.speech_service_mpg123:main'
         ],
     },
 )
