@@ -13,7 +13,7 @@ class Synthesis(rclpy.node.Node):
     
         self.get_logger().info('音声合成ノードを起動します')    
     
-        self.lang = 'ja-JP'    
+        self.lang = 'en'    
         self.mp3 = Mpg123()    
         self.out = Out123()    
         
