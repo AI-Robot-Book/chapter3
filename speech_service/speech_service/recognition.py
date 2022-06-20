@@ -16,8 +16,7 @@ class Recognition(rclpy.node.Node):
     
         self.publisher = self.create_publisher(String, '/speech', 1)
 
-    def recognition(self):    
-    
+    def recognition(self):
         with sr.Microphone() as source: 
             while True:
                 text = ''
