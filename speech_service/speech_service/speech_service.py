@@ -34,7 +34,7 @@ class SpeechService(rclpy.node.Node):
     
         self.synthesis(text)
     
-        response.answer = 'done'
+        response.answer = text
         return response
 
     def recognition(self):
