@@ -31,7 +31,7 @@ class Recognition(rclpy.node.Node):
     
         msg = String()    
         msg.data = text    
-        self.get_logger().info(f'認識した音声 "{text}" をトピック名 /speech に公開します')    
+        self.get_logger().info(f'認識した音声 "{text}" をトピック名 /speech にパブリッシュします')    
     
         self.publisher.publish(msg)
 
