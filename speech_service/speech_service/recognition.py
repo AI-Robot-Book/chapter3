@@ -17,10 +17,11 @@ class Recognition(rclpy.node.Node):
         self.publisher = self.create_publisher(String, '/speech', 1)
 
     def recognition(self):    
-        text = ''    
     
         with sr.Microphone() as source: 
             while True:
+                text = ''
+                
                 audio_data = self.init_rec.record(source, duration=5)    
                 self.get_logger().info(f'音声認識を行います')    
     
