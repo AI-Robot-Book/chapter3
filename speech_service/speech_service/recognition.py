@@ -19,21 +19,22 @@ class Recognition(rclpy.node.Node):
     def recognition(self):    
         text = ''    
     
-        with sr.Microphone() as source:    
-            audio_data = self.init_rec.record(source, duration=5)    
-            self.get_logger().info(f'音声認識を行います')    
+        with sr.Microphone() as source: 
+            while True:
+                audio_data = self.init_rec.record(source, duration=5)    
+                self.get_logger().info(f'音声認識を行います')    
     
-            try:    
-                text = self.init_rec.recognize_google(audio_data)    
+                try:    
+                    text = self.init_rec.recognize_google(audio_data)    
     
-            except sr.UnknownValueError:    
-                pass    
+                except sr.UnknownValueError:    
+                    pass    
     
-        msg = String()    
-        msg.data = text    
-        self.get_logger().info(f'認識した音声 "{text}" をトピック名 /speech にパブリッシュします')    
+                msg = String()    
+                msg.data = text    
+                self.get_logger().info(f'認識した音声 "{text}" をトピック名 /speech にパブリッシュします')    
     
-        self.publisher.publish(msg)
+                self.publisher.publish(msg)
 
 def main():    
     rclpy.init()    
