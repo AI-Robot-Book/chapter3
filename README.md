@@ -10,5 +10,6 @@
     - 音声がスピーカーから出力されない場合は、synthesis_mpg123.pyからの実行を試してください。音声合成されたmp3ファイルが出力されるので、そのファイルを再生して確認してください。
 - 3.3.1 トピック通信によるオウム返しの実行手順
 - 3.3.2 サービスによるオウム返しの実行手順
+  - ros2 service call /speech_service/wake_up airobot_interfaces/srv/StringCommand "{command: 'start'}"
   - 困ったとき
     - 音声がスピーカーから出力されない場合は、speech_service_mpg123.pyからの実行を試してください。音声合成されたmp3ファイルが出力されるので、そのファイルを再生して確認してください。
