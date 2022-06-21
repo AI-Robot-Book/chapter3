@@ -24,27 +24,27 @@ class SpeechService(rclpy.node.Node):
         self.mp3 = Mpg123()
         self.out = Out123()
 
-    def command_callback(self, request, response):    
-    
+    def command_callback(self, request, response):
+
         self.synthesis('I\'m ready.')
-    
-        text = None    
-        while text is None:    
-            text = self.recognition()    
-    
+
+        text = None
+        while text is None:
+            text = self.recognition()
+
         self.synthesis(text)
-    
+
         response.answer = text
         return response
 
     def recognition(self):
         text = ''
-        
+
         with sr.Microphone() as source:
             while text == '':
                 audio_data = self.init_rec.record(source, duration=5)
                 self.get_logger().info(f'音声認識を行います')
-        
+
                 try:
                     text = self.init_rec.recognize_google(audio_data)
                 except sr.UnknownValueError:
