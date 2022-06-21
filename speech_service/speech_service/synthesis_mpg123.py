@@ -3,7 +3,6 @@ import rclpy.node
 from std_msgs.msg import String
 
 from gtts import gTTS
-from io import BytesIO
 import subprocess
 
 
@@ -15,7 +14,8 @@ class Synthesis(rclpy.node.Node):
 
         self.lang = 'en'
 
-        self.subscriber = self.create_subscription(String, '/speech', self.synthesis, 1)
+        self.subscriber = self.create_subscription(
+            String, '/speech', self.synthesis, 1)
 
     def synthesis(self, msg):
         self.get_logger().info('音声合成を実行します')
@@ -27,6 +27,7 @@ class Synthesis(rclpy.node.Node):
 
         subprocess.run(["mpg123 voice.mp3"], shell=True)
 
+
 def main():
     rclpy.init()
 
@@ -34,7 +35,7 @@ def main():
 
     try:
         rclpy.spin(synthesis_node)
-    except:
+    except Exception:
         synthesis_node.destroy_node()
 
     rclpy.shutdown()

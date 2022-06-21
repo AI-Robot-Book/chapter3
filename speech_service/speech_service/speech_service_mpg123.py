@@ -3,9 +3,7 @@ import rclpy.node
 from airobot_interfaces.srv import StringCommand
 
 from gtts import gTTS
-
 import speech_recognition as sr
-import pyaudio
 import subprocess
 
 
@@ -17,7 +15,8 @@ class SpeechService(rclpy.node.Node):
 
         self.init_rec = sr.Recognizer()
 
-        self.service = self.create_service(StringCommand, '/speech_service/wake_up', self.command_callback)
+        self.service = self.create_service(
+            StringCommand, '/speech_service/wake_up', self.command_callback)
 
     def command_callback(self, request, response):
 
@@ -57,6 +56,7 @@ class SpeechService(rclpy.node.Node):
         gTTS(text, lang='en').save('voice.mp3')
 
         subprocess.run(["mpg123 voice.mp3"], shell=True)
+
 
 def main():
     rclpy.init()

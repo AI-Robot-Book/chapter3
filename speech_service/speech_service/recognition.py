@@ -3,7 +3,6 @@ import rclpy.node
 from std_msgs.msg import String
 
 import speech_recognition as sr
-import pyaudio
 
 
 class Recognition(rclpy.node.Node):
@@ -32,9 +31,11 @@ class Recognition(rclpy.node.Node):
 
                 msg = String()
                 msg.data = text
-                self.get_logger().info(f'認識した音声 "{text}" をトピック名 /speech にパブリッシュします')
+                self.get_logger().info(
+                    f'認識した音声 "{text}" をトピック名 /speech にパブリッシュします')
 
                 self.publisher.publish(msg)
+
 
 def main():
     rclpy.init()
@@ -43,7 +44,7 @@ def main():
 
     try:
         recognition_node.recognition()
-    except:
+    except Exception:
         recognition_node.destroy_node()
 
     rclpy.shutdown()

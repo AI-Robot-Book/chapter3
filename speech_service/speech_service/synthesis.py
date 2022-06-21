@@ -17,22 +17,25 @@ class Synthesis(rclpy.node.Node):
         self.mp3 = Mpg123()
         self.out = Out123()
 
-        self.subscriber = self.create_subscription(String, '/speech', self.synthesis, 1)
+        self.subscriber = self.create_subscription(
+            String, '/speech', self.synthesis, 1)
 
     def synthesis(self, msg):
-        self.get_logger().info('音声合成を実行します')
+        if msg.data != "":
+            self.get_logger().info('音声合成を実行します')
 
-        text = msg.data
-        self.get_logger().info(f'\"{text}\"と発話します')
+            text = msg.data
+            self.get_logger().info(f'\"{text}\"と発話します')
 
-        tts = gTTS(text, lang=self.lang[:2])
-        fp = BytesIO()
-        tts.write_to_fp(fp)
-        fp.seek(0)
-        self.mp3.feed(fp.read())
+            tts = gTTS(text, lang=self.lang[:2])
+            fp = BytesIO()
+            tts.write_to_fp(fp)
+            fp.seek(0)
+            self.mp3.feed(fp.read())
 
-        for frame in self.mp3.iter_frames(self.out.start):
-            self.out.play(frame)
+            for frame in self.mp3.iter_frames(self.out.start):
+                self.out.play(frame)
+
 
 def main():
     rclpy.init()
@@ -41,7 +44,7 @@ def main():
 
     try:
         rclpy.spin(synthesis_node)
-    except:
+    except Exception:
         synthesis_node.destroy_node()
 
     rclpy.shutdown()
