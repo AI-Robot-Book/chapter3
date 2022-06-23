@@ -44,7 +44,7 @@ def main():
 
     try:
         rclpy.spin(synthesis_node)
-    except Exception:
-        synthesis_node.destroy_node()
+    except KeyboardInterrupt:
+        pass
 
     rclpy.shutdown()
