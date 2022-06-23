@@ -63,7 +63,9 @@ def main():
 
     speech_service = SpeechService()
 
-    rclpy.spin(speech_service)
-    speech_service.destroy_node()
+    try:
+        rclpy.spin(speech_service)
+    except KeyboardInterrupt:
+        pass
 
     rclpy.shutdown()
