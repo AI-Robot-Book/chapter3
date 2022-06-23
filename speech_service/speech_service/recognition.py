@@ -41,10 +41,10 @@ def main():
     rclpy.init()
 
     recognition_node = Recognition()
-
+    
     try:
         recognition_node.recognition()
-    except Exception:
-        recognition_node.destroy_node()
+    except KeyboardInterrupt:
+        pass
 
     rclpy.shutdown()
