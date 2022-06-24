@@ -27,8 +27,8 @@ class SpeechService(rclpy.node.Node):
 
         self.synthesis("I'm ready.")
 
-        text = None
-        while text is None:
+        text = ''
+        while text == '':
             text = self.recognition()
 
         self.synthesis(text)
