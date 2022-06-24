@@ -7,7 +7,7 @@ import speech_recognition as sr
 
 class Recognition(rclpy.node.Node):
     def __init__(self):
-        super().__init__("speech_recognition")
+        super().__init__('speech_recognition')
 
         self.get_logger().info('音声認識ノードを起動します')
 
