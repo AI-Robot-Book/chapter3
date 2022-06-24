@@ -9,7 +9,7 @@ from mpg123 import Mpg123, Out123
 
 class Synthesis(rclpy.node.Node):
     def __init__(self):
-        super().__init__("speech_synthesis")
+        super().__init__('speech_synthesis')
 
         self.get_logger().info('音声合成ノードを起動します')
 
@@ -21,7 +21,7 @@ class Synthesis(rclpy.node.Node):
             String, '/speech', self.synthesis, 1)
 
     def synthesis(self, msg):
-        if msg.data != "":
+        if msg.data != '':
             self.get_logger().info('音声合成を実行します')
 
             text = msg.data
