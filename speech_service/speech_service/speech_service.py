@@ -10,9 +10,9 @@ from mpg123 import Mpg123, Out123
 
 class SpeechService(rclpy.node.Node):
     def __init__(self):
-        super().__init__("speech_service")
+        super().__init__('speech_service')
 
-        self.get_logger().info("音声サーバーを起動しました")
+        self.get_logger().info('音声サーバーを起動しました')
 
         self.init_rec = sr.Recognizer()
 
