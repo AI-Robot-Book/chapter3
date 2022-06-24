@@ -14,27 +14,28 @@ class Recognition(rclpy.node.Node):
         self.init_rec = sr.Recognizer()
 
         self.publisher = self.create_publisher(String, '/speech', 1)
+        
+        self.timer = self.create_timer(5.0, self.recognition)
 
     def recognition(self):
         with sr.Microphone() as source:
-            while True:
-                text = ''
+            text = ''
 
-                audio_data = self.init_rec.record(source, duration=5)
-                self.get_logger().info(f'音声認識を行います')
+            audio_data = self.init_rec.record(source, duration=5)
+            self.get_logger().info(f'音声認識を行います')
 
-                try:
-                    text = self.init_rec.recognize_google(audio_data)
+            try:
+                text = self.init_rec.recognize_google(audio_data)
 
-                except sr.UnknownValueError:
-                    pass
+            except sr.UnknownValueError:
+                pass
 
-                msg = String()
-                msg.data = text
-                self.get_logger().info(
-                    f'認識した音声 "{text}" をトピック名 /speech にパブリッシュします')
+            msg = String()
+            msg.data = text
+            self.get_logger().info(
+                f'認識した音声 "{text}" をトピック名 /speech にパブリッシュします')
 
-                self.publisher.publish(msg)
+            self.publisher.publish(msg)
 
 
 def main():
@@ -43,7 +44,7 @@ def main():
     recognition_node = Recognition()
     
     try:
-        recognition_node.recognition()
+        recognition_node.spin()
     except KeyboardInterrupt:
         pass
 
