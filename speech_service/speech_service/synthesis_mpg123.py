@@ -8,7 +8,7 @@ import subprocess
 
 class Synthesis(rclpy.node.Node):
     def __init__(self):
-        super().__init__("speech_synthesis")
+        super().__init__('speech_synthesis')
 
         self.get_logger().info('音声合成ノードを起動します')
 
@@ -23,9 +23,9 @@ class Synthesis(rclpy.node.Node):
         text = msg.data
         self.get_logger().info(f'\"{text}\"と発話します')
 
-        gTTS(text, lang='en', slow=True).save("voice.mp3")
+        gTTS(text, lang='en', slow=True).save('voice.mp3')
 
-        subprocess.run(["mpg123 voice.mp3"], shell=True)
+        subprocess.run(['mpg123 voice.mp3'], shell=True)
 
 
 def main():
