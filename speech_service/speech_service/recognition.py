@@ -30,7 +30,7 @@ class Recognition(rclpy.node.Node):
             except sr.UnknownValueError:
                 pass
 
-            if text == '':
+            if text != '':
                 msg = String()
                 msg.data = text
                 self.get_logger().info(
