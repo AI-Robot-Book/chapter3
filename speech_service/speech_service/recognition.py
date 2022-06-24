@@ -30,12 +30,13 @@ class Recognition(rclpy.node.Node):
             except sr.UnknownValueError:
                 pass
 
-            msg = String()
-            msg.data = text
-            self.get_logger().info(
-                f'認識した音声 "{text}" をトピック名 /speech にパブリッシュします')
+            if text == '':
+                msg = String()
+                msg.data = text
+                self.get_logger().info(
+                    f'認識した音声 "{text}" をトピック名 /speech にパブリッシュします')
 
-            self.publisher.publish(msg)
+                self.publisher.publish(msg)
 
 
 def main():
