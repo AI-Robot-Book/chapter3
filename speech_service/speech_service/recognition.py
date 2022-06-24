@@ -44,7 +44,7 @@ def main():
     recognition_node = Recognition()
     
     try:
-        recognition_node.spin()
+        rclpy.spin(recognition_node)
     except KeyboardInterrupt:
         pass
 
