@@ -25,7 +25,7 @@ class SpeechService(rclpy.node.Node):
 
     def command_callback(self, request, response):
 
-        self.synthesis('I\'m ready.')
+        self.synthesis("I'm ready.")
 
         text = None
         while text is None:
