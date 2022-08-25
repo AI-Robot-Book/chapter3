@@ -4,7 +4,29 @@
 音声認識と音声合成を実行するプログラム
 
 ## インストール
-インストール方法を書く．
+- オーディオ関連を扱うためのライブラリを以下のコマンドでインストールします．
+```
+apt install portaudio19-dev
+apt install pulseaudio
+```
+- Pythonのモジュールとして呼びたすために，以下のコマンドを実行します．
+```
+pip3 install pyaudio
+```
+- 音声認識ライブラリを以下のコマンドでインストールします．
+```
+pip3 install SpeechRecognition
+```
+- サンプルプログラムを以下のコマンドでGitHubからクローンします．
+```
+cd ˜/airobot_ws/src
+git clone https://github.com/AI-Robot-Book/chapter3
+```
+- 以下のコマンドでパッケージをビルドします．
+```
+cd ˜/airobot_ws
+colcon build
+```
 
 ## 実行
 - 音声認識の実行手順（3.1節）
