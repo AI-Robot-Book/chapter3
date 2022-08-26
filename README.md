@@ -4,7 +4,7 @@ ROS2とPythonで作って学ぶAIロボット入門（出村・萩原・升谷�
 
 ## ディレクトリ構成
 
-- **speech_service:** 音声認識と音声合成のサンプルプログラム
+- **[speech_service](https://github.com/AI-Robot-Book/chapter3/tree/master/speech_service):** 音声認識と音声合成のサンプルプログラム
    
 ## 補足情報
  - 実行するUbuntuの環境でマイクからの音声入力とスピーカーからの音の出力が出来ていることを事前に確認してください．
