@@ -81,8 +81,7 @@ colcon build
 
 ## 履歴
 バグフィクスやチェンジログ
-- 2022-08-23: READMEの修正
-- 2022-03-15: 初期版
+- 2022-08-28: 初期版
 
 ## ライセンス
 Copyright (c) 2022, Yoshinobu Hagiwara and Masaki Ito
@@ -90,4 +89,4 @@ All rights reserved.
 This source code is licensed under the Apache-2.0 license found in the LICENSE file in the root directory of this project.
 
 ## 参考文献
-- 今のところなし．
+- 特になし
