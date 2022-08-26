@@ -4,7 +4,7 @@
   <name>speech_service</name>
   <version>0.0.0</version>
   <description>TODO: Package description</description>
-  <maintainer email="ai-robot-book@googlegroups.com">Masaki Ito and Yoshinobu Hagiwara</maintainer>
+  <maintainer email="ai-robot-book@googlegroups.com">Yoshinobu Hagiwara and Masaki Ito</maintainer>
   <license>Apache-2.0</license>
 
   <test_depend>ament_copyright</test_depend>
