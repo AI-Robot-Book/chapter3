@@ -86,6 +86,6 @@ colcon build
 ## ライセンス
 Copyright (c) 2022, Yoshinobu Hagiwara and Masaki Ito
 All rights reserved.
-This source code is licensed under the Apache-2.0 license found in the LICENSE file in the root directory of this project.
+This project is licensed under the Apache-2.0 license found in the LICENSE file in the root directory of this project.
 
 ## 参考文献
