@@ -3,7 +3,7 @@
 <package format="3">
   <name>speech_service</name>
   <version>0.0.0</version>
-  <description>TODO: Package description</description>
+  <description>ROS2 package for speech recognition and speech synthesis</description>
   <maintainer email="ai-robot-book@googlegroups.com">Masaki Ito</maintainer>
   <license>Apache License 2.0</license>
 
