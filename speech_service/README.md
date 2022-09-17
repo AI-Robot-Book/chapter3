@@ -47,7 +47,7 @@ colcon build
     ```
   - 新しい端末を開いて発話させたいメッセージを /speech に送ります．
     ```
-    ros2 topic pub -1 /speech std_msgs/msg/String "{data: 'I will go to the kitchen and grab a bottle.'}
+    ros2 topic pub -1 /speech std_msgs/msg/String "{data: 'I will go to the kitchen and grab a bottle.'}"
     ```
   - スピーカから音声が出力されます．
 
