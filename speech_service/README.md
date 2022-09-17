@@ -6,8 +6,8 @@
 ## インストール
 - オーディオ関連を扱うためのライブラリを以下のコマンドでインストールします．
 ```
-apt install portaudio19-dev
-apt install pulseaudio
+sudo apt install portaudio19-dev
+sudo apt install pulseaudio
 ```
 - Pythonのモジュールとして呼びたすために，以下のコマンドを実行します．
 ```
@@ -16,6 +16,12 @@ pip3 install pyaudio
 - 音声認識ライブラリを以下のコマンドでインストールします．
 ```
 pip3 install SpeechRecognition
+```
+- 音声合成で用いるライブラリをインストールします。
+```
+pip3 install gTTS
+sudo apt install mpg123
+pip3 install mpg123
 ```
 - サンプルプログラムを以下のコマンドでGitHubからクローンします．
 ```
