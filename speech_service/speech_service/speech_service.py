@@ -2,12 +2,8 @@ import rclpy #[*] PythonからROS2を使用するためのモジュールを読�
 import rclpy.node
 from airobot_interfaces.srv import StringCommand
 
-import speech_recognition as sr #[*] 音声認識を行うためのモジュールを読み込みます．
-
-
 from gtts import gTTS #[*] gTTSはGoogleの音声合成APIを利用できるモジュールです．
-
-
+import speech_recognition as sr #[*] 音声認識を行うためのモジュールを読み込みます．
 from io import BytesIO #[*] 取得した音声合成データを再生するためのモジュールです．
 from mpg123 import Mpg123, Out123
 
@@ -23,7 +19,6 @@ class SpeechService(rclpy.node.Node): #[*] SpeechServiceクラスをノードと
         self.service = self.create_service( #[*] おうむ返しを開始するコマンドを受け取るためのServiceを作成します．リクエストが来たら，command_callback関数を呼び出します．
             StringCommand, '/speech_service/wake_up', self.command_callback)
 
-        
         self.lang = 'en' #[*] 音声合成してほしい言語の設定します．
         self.mp3 = Mpg123() #[*] 音声合成データを再生するためのクラスを初期化します．
         self.out = Out123()
@@ -31,16 +26,13 @@ class SpeechService(rclpy.node.Node): #[*] SpeechServiceクラスをノードと
     def command_callback(self, request, response):
 
         self.synthesis("I'm ready.") #[*] サービスを開始したことを音声合成を行い，発話します．
-
         
         text = '' #[*] 認識した文章が受け取れるまで，音声認識を行います．
         while text == '':
             text = self.recognition()
 
-        
         self.synthesis(text) #[*] 認識した文章を音声合成します．
 
-        
         response.answer = text #[*] 認識結果をServiceのレンスポンスとして返します．
         return response
 
@@ -67,7 +59,6 @@ class SpeechService(rclpy.node.Node): #[*] SpeechServiceクラスをノードと
         self.get_logger().info(f'発話内容は "{text}"')
 
         tts = gTTS(text, lang=self.lang[:2]) #[*] 音声合成してほしい文章をgoogleの音声合成APIに渡します．
-        
         fp = BytesIO() #[*] 音声合成データを再生するためのIOの初期化を行います．
         tts.write_to_fp(fp)
         fp.seek(0)
