@@ -3,7 +3,6 @@ import rclpy.node
 from std_msgs.msg import String
 
 from gtts import gTTS #[*] gTTSはGoogleの音声合成APIを利用できるモジュールです．
-
 from io import BytesIO #[*] 取得した音声合成データを再生するためのモジュールです．
 from mpg123 import Mpg123, Out123
 
@@ -29,7 +28,6 @@ class Synthesis(rclpy.node.Node): #[*] Synthesisクラスをノードとして�
             self.get_logger().info(f'\"{text}\"と発話します')
 
             tts = gTTS(text, lang=self.lang[:2]) #[*] 音声合成してほしい文章をgoogleの音声合成APIに渡します．
-            
             fp = BytesIO() #[*] 音声合成データを再生するためのIOの初期化を行います．
             tts.write_to_fp(fp)
             fp.seek(0)
